@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Button } from 'reactstrap';
 
 class MovieListItem extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class MovieListItem extends React.Component {
                 <div class="card-body">
                     <h5 class="card-title">{this.props.movie.Title} ({this.props.movie.Year})</h5>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
+                    <Button color="primary">Detalles</Button>
                 </div>
             </div>
         );

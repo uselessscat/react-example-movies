@@ -9,7 +9,7 @@ class OmdbApi {
         let params = this.implodeParameters(
             {
                 apiKey: OMDB_API_KEY,
-                s: title
+                s: `*${title}*`
             }
         );
 
