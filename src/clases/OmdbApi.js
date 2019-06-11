@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 
-const OMDB_API_URL = 'http://www.omdbapi.com/';
+const OMDB_API_URL = '//www.omdbapi.com/';
 const OMDB_API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 class OmdbApi {
