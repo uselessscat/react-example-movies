@@ -23,7 +23,6 @@ class MovieListItem extends React.Component {
     };
 
     showDetailsHandler(id, e) {
-        console.log(id);
         this.props.onShowDetailsHandler(id, e.target.value);
     }
 }

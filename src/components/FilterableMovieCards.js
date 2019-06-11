@@ -50,7 +50,6 @@ class FilterableMovieCards extends React.Component {
 
     showDetails(id, e) {
         OmdbApi.searchById(id, function (data) {
-            console.log(data);
             this.setState({
                 modal: true,
                 movieData: data.data
