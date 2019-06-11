@@ -12,15 +12,14 @@ class FilterableMovieCards extends React.Component {
 
         this.state = {
             filter: '',
-            'searchResult': {}
+            'searchResult': {},
+            'movieData': {},
+            'modal': false
         };
 
         this.searchChange = this.searchChange.bind(this);
-        //this.handleShowDetails = this.handleShowDetails.bind(this);
-
-        //let movieData = {};
-        //this.movieDetails = (<MovieDetails movieDetails={movieData} handleShowDetails={this.handleShowDetails} />);
-        //{this.movieDetails}
+        this.showDetails = this.showDetails.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     render() {
@@ -32,9 +31,10 @@ class FilterableMovieCards extends React.Component {
                 </div>
                 <div class="row">
                     <div class="col">
-                        <MovieList searchResult={this.state.searchResult} />
+                        <MovieList searchResult={this.state.searchResult} onShowDetailsHandler={this.showDetails} />
                     </div>
                 </div>
+                <MovieDetails movieDetails={this.state.movieData} modal={this.state.modal} toggleModal={this.toggleModal} />
             </div>
         );
     };
@@ -48,14 +48,20 @@ class FilterableMovieCards extends React.Component {
         }.bind(this));
     }
 
-    handleShowDetails() {
+    showDetails(id, e) {
+        OmdbApi.searchById(id, function (data) {
+            console.log(data);
+            this.setState({
+                modal: true,
+                movieData: data.data
+            });
+        }.bind(this));
+    }
+
+    toggleModal() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
-    }
-
-    getDefaultData() {
-
     }
 }
 
