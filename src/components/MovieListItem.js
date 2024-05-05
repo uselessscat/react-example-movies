@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Card, CardBody, CardText, CardTitle } from 'reactstrap';
 
 class MovieListItem extends React.Component {
     constructor(props) {
@@ -11,14 +10,18 @@ class MovieListItem extends React.Component {
 
     render() {
         return (
-            <div class="card">
-                <img src={this.props.movie.Poster} class="card-img-top" alt={'Imagen ' + this.props.movie.Title}></img>
-                <div class="card-body">
-                    <h5 class="card-title">{this.props.movie.Title} ({this.props.movie.Year})</h5>
-                    <p class="card-text"></p>
+            <Card>
+                <img src={this.props.movie.Poster} className="card-img-top" alt={'Imagen ' + this.props.movie.Title}></img>
+                <CardBody>
+                    <CardTitle tag="h5">
+                        {this.props.movie.Title} ({this.props.movie.Year})
+                    </CardTitle>
+                    <CardText>
+
+                    </CardText>
                     <Button color="primary" onClick={this.showDetailsHandler.bind(this, this.props.movie.imdbID)}>Detalles</Button>
-                </div>
-            </div>
+                </CardBody>
+            </Card>
         );
     };
 

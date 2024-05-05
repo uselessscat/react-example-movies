@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import OmdbApi from '../clases/OmdbApi';
@@ -24,16 +23,12 @@ class FilterableMovieCards extends React.Component {
 
     render() {
         return (
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col"><h1>Listado de peliculas</h1></div>
-                    <div class="col">Buscador <MovieSearcher search={this.state.filter} onChangeHandler={this.searchChange} /></div>
+            <div className="container py-5">
+                <div className="row align-items-center">
+                    <div className="col"><h1>Listado de películas</h1></div>
+                    <div className="col">Buscador <MovieSearcher search={this.state.filter} onChangeHandler={this.searchChange} /></div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <MovieList searchResult={this.state.searchResult} onShowDetailsHandler={this.showDetails} />
-                    </div>
-                </div>
+                <MovieList title="asd" searchResult={this.state.searchResult} onShowDetailsHandler={this.showDetails} />
                 <MovieDetails movieDetails={this.state.movieData} modal={this.state.modal} toggleModal={this.toggleModal} />
             </div>
         );
@@ -48,7 +43,7 @@ class FilterableMovieCards extends React.Component {
         }.bind(this));
     }
 
-    showDetails(id, e) {
+    showDetails(id) {
         OmdbApi.searchById(id, function (data) {
             this.setState({
                 modal: true,
